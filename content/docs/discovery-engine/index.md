@@ -1,14 +1,16 @@
 ---
 title: 'Discovery Engine'
-weight: 4
+weight: 5
+summary: 'AccuKnox Discovery Engine plays a crucial role in securing and observing workloads by generating policies and telemetry information.'
 ---
 
 - [Key Features](#key-features)
 - [Summary](#summary-command)
 - [Discover](#discover-command)
 - [Recommend](#recommend-command)
+- [Regex Support](#regex-support)
 
-AccuKnox's Discovery Engine plays a crucial role in securing and observing workloads by generating policies and telemetry information. It works in conjunction with `knoxctl`, a tool that fetches information from the Discovery Engine operating within the `accuknox-agents` namespace.
+AccuKnox's Discovery Engine plays a crucial role in securing and observing workloads by generating policies and telemetry information. It works in conjunction with `knoxctl`, a tool that fetches information from the Discovery Engine operating within the `accuknox-agents` namespace. For all of the commands, if they have any standalone flags please append them at the end of the command.
 
 [[Top]](#top)
 
@@ -24,7 +26,7 @@ By leveraging the Discovery Engine, users can gain valuable insights and maintai
 
 ## Summary Command
 
-The `summary` command in `knoxctl` connects to the Discovery Engine to provide observability data, utilizing telemetry information from KubeArmor.
+The `knoxctl summary` command offers a detailed overview of observability data by connecting to the Discovery Engine. It leverages telemetry insights from KubeArmor to enhance the visibility of Kubernetes workloads.
 
 ### Summary Usage
 
@@ -43,21 +45,11 @@ knoxctl summary [flag] [option]
 | `-o`, `--operation <string>`      | Filter summary by type: `process`, `file`, or `network`.               |
 | `-v`, `--view <string>`           | Output format in the terminal, available in JSON or table format.      |
 
-### Regex Support
-
-We support RE2 regex syntax which you can use to filter out namespaces. To filter namepaces using regex you can do the following:
-
-`knoxctl summary -n '<regex-pattern>'` or `knoxctl summary --namespace '<regex-pattern>'`
-
-Essentially to filter out using regex you can do the following
-
-`knoxctl summary [flag] '<regex-pattern>'`
-
 [[Top]](#top)
 
 ## Discover Command
 
-The `discover` subcommand connects to Discovery Engine to fetch the discovered policies generated based on specific workloads. These are targeted policies for workloads to maintain robust security.
+The `discover` command in `knoxctl` is designed to retrieve specific workload-targeted policies from the Discovery Engine. It provides an efficient way to fetch dynamically generated policies for enhanced security measures.
 
 ### Discover Usage
 
@@ -112,3 +104,23 @@ knoxctl recommend [flag] [option]
 | `-n`, `--namespace <strings>` | Filter by namespace.                                                        |
 | `-p`, `--policy <strings>`     | Types of policy that can be recommended: `KubeArmorPolicy`, `KyvernoPolicy` (default: `[KubeArmorPolicy]`). |
 | `-v`, `--view <string>`        | View policies as table, yaml, or json.                                      |
+
+[[Top]](#top)
+
+## Regex Support
+
+We support RE2 regex syntax which you can use to filter out namespaces. To filter namepaces using regex you can do the following (this is an example with `summary` command):
+
+`knoxctl summary -n '<regex-pattern>'` or `knoxctl summary --namespace '<regex-pattern>'`
+
+```bash
+knoxctl summary -n 'kube-*'
+```
+
+Essentially to filter out using regex you can do the following
+
+```bash
+knoxctl [command] [flag] '<regex-pattern>'
+```
+
+We are expanding regex support further for more subcommands. Currently regex is supported only for Discovery Engine subcommands with specific flags.

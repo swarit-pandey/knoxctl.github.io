@@ -1,7 +1,9 @@
-baseURL = 'http://knoxctl.github.io'
+baseURL = "/"
 languageCode = 'en-us'
 title = 'Knoxctl Documentation'
 theme = "hugo-whisper-theme"
+
+summaryLength = 30
 
 [[menu.main]]
     name = "Home"
@@ -12,3 +14,17 @@ theme = "hugo-whisper-theme"
     name = "Docs"
     url = "/docs/"
     weight = 2
+
+[params]
+    homepage_button_link = '/docs'
+    homepage_button_text = 'Read The Docs'
+    homepage_image = '/images/knoxctl_demo.gif'
+    meta_twitter_site = "@AccuKnox"
+    meta_twitter_creator = "@AccuKnox"
+
+    [params.logo]
+        standard  = "/images/cons_logo_6.svg"
+        mobile = "/images/knoxctl_logo_2.svg"
+
+    [params.footer]
+        copyright_text = 'CLI utility by <a class="accuknox" href="https://www.accuknox.com">AccuKnox</a>'

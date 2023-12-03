@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Github",
+        "link": "https://github.com/accuknox",
+        "image": "images/social/github-mark.svg"
+    },
+    {
+        "name": "Twitter",
+        "link": "https://twitter.com/AccuKnox",
+        "image": "images/social/x_logo.svg"
+    }
+]

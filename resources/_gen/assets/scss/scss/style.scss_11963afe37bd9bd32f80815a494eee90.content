@@ -13335,7 +13335,7 @@ p {
       display: block;
       width: 70px; } }
   .logo img {
-    width: 100%;
+    width: 450%;
     height: auto; }
   .logo a {
     display: block;
