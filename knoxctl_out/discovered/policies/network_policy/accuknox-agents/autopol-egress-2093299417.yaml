@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: autopol-egress-2093299417
+  namespace: accuknox-agents
+spec:
+  egress:
+  - ports:
+    - port: 9091
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app: policy-enforcement-agent
+  policyTypes:
+  - Egress
+---

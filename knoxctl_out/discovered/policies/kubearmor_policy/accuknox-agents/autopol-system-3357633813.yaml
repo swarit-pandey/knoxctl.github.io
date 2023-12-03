@@ -1,0 +1,29 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: autopol-system-3357633813
+  namespace: accuknox-agents
+spec:
+  action: Allow
+  file:
+    matchDirectories:
+    - dir: /
+      recursive: true
+  network:
+    matchProtocols:
+    - fromSource:
+      - path: /home/pea/main
+      protocol: tcp
+    - fromSource:
+      - path: /home/pea/main
+      protocol: udp
+    - fromSource:
+      - path: /home/pea/main
+      protocol: raw
+  process:
+    matchPaths:
+    - path: /home/pea/main
+  selector:
+    matchLabels:
+      app: policy-enforcement-agent
+  severity: 1
