@@ -23,7 +23,7 @@ summaryLength = 30
     meta_twitter_creator = "@AccuKnox"
 
     [params.logo]
-        standard  = "/images/knoxctl_logo_2.svg"
+        standard  = "/images/cons_logo_6.svg"
         mobile = "/images/knoxctl_logo_2.svg"
 
     [params.footer]
